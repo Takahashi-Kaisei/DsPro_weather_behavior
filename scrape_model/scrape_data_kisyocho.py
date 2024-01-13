@@ -29,8 +29,10 @@ class ScrapeWeatherFromKisyocho:
                             con = sqlite3.connect('weather_scrape.sqlite')
                             cur = con.cursor()
                             
+                            date_with_year = f'{y}/{m}/{data[0]}'
+
                             cur.execute('INSERT INTO weather_kisyocho (日,合計降水量,最大一時間降水量,最大10分間降水量,平均気温,最高気温,最低気温,平均湿度,最小湿度,平均風速,最大風速,最大風速の風向き,最大瞬間風速,最大瞬間風速の風向き,最多風向き,日照時間,降雪の深さの合計,最深積雪) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                                        (str(y) + '/' + str(m) + '/' + str(data[0]),
+                                        (date_with_year,
                                         data[1],
                                         data[2],
                                         data[3],
