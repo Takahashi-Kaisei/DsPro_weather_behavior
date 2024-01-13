@@ -4,7 +4,7 @@ import re
 import time
 import sqlite3
 
-class ScrapeWeatherFromKisyoch:
+class ScrapeWeatherFromKisyocho:
 
     def __init__(self, start_year, end_year):
         self.start_year = start_year
@@ -15,7 +15,6 @@ class ScrapeWeatherFromKisyoch:
         y = start_year
 
         while y <= end_year:
-            year_num = str(y)
             for m in range(1, 13):
                 url = f'https://www.data.jma.go.jp/obd/stats/etrn/view/daily_a1.php?prec_no=44&block_no=0370&year={y}&month={m}'
                 r = requests.get(url)
@@ -34,11 +33,10 @@ class ScrapeWeatherFromKisyoch:
                             con = sqlite3.connect('weather_scrape.sqlite')
                             cur = con.cursor()
                             
-                            date = f'{m}/{data[0]}'
+                            date = f'{y}/{m}/{data[0]}'
 
-                            cur.execute('INSERT INTO weather_kisyocho (年,日,合計降水量,最大一時間降水量,最大10分間降水量,平均気温,最高気温,最低気温,平均湿度,最小湿度,平均風速,最大風速,最大風速の風向き,最大瞬間風速,最大瞬間風速の風向き,最多風向き,日照時間,降雪の深さの合計,最深積雪) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                                        (year_num,
-                                        date,
+                            cur.execute('INSERT INTO weather_kisyocho (日,合計降水量,最大一時間降水量,最大10分間降水量,平均気温,最高気温,最低気温,平均湿度,最小湿度,平均風速,最大風速,最大風速の風向き,最大瞬間風速,最大瞬間風速の風向き,最多風向き,日照時間,降雪の深さの合計,最深積雪) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                                        (date,
                                         data[1],
                                         data[2],
                                         data[3],
