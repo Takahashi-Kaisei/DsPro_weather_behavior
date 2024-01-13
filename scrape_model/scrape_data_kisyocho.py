@@ -4,7 +4,8 @@ import re
 import time
 import sqlite3
 
-class scrape_weather_from_kisyocho:
+class ScrapeWeatherFromKisyocho:
+
     def scrape(self, start_year, end_year):
         
         y = start_year
