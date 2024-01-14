@@ -14,3 +14,4 @@ sr.scrape(start_year=, end_year=)
 
 weather_scrape.sqliteのweather_kisyochoテーブルとして作成(削除)します。
 
+localデータのsns game youtubeの単位は分です
