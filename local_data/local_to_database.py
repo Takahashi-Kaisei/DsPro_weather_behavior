@@ -14,6 +14,6 @@ class Local2Database:
 
 
         #変換しかしないので注意
-        con = sqlite3.connect('/Users/takahashikaisei/Lecture/ds_programing/final_kadai/local_data/screantime_local.sqlite') #データベースにアクセス
+        con = sqlite3.connect('screantime_local.sqlite') #データベースにアクセス
         df.to_sql('screantime_data', con, if_exists='replace', index=False) #データベースに変換、if_exists='replace'で同じ名前のものがあったときに置き換える。index=Falseでindexを入れないように指定してる
         con.close() #データベースを閉じる
