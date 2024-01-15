@@ -10,7 +10,7 @@
 ・howtouse_ScrapeWeatherFromKisyochoはモジュールの使い方のようなものです
 ・scrape_data_kisyochoの中にモジュールが定義してあります。
 ※インポートするとき
-    from howtouse_ScrapeWeatherFromKisyocho import scrape_data_kisyocho
+    from scrape_data_kisyocho import ScrapeWeatherFromKisyocho
 ※使うとき
     sr = ScrapeWeatherFromKisyocho(start_year=　, end_year=)
     sr.scrape(start_year=, end_year=)
