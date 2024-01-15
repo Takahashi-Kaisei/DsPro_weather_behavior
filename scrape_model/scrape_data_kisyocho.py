@@ -35,7 +35,7 @@ class ScrapeWeatherFromKisyocho:
                             
                             date = f'{y}/{m}/{data[0]}'
 
-                            cur.execute('INSERT INTO weather_kisyocho (ymd,合計降水量,最大一時間降水量,最大10分間降水量,平均気温,最高気温,最低気温,平均湿度,最小湿度,平均風速,最大風速,最大風速の風向き,最大瞬間風速,最大瞬間風速の風向き,最多風向き,日照時間,降雪の深さの合計,最深積雪) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                            cur.execute('INSERT INTO weather_kisyocho (ymd ,total_rain ,max_hour_rain ,max_10minute_rain ,mean_temp ,max_temp ,min_temp ,mean_hum ,min_hum ,mean_windspeed ,max_windspeed ,max_windspeed_directon ,max_instant_windspeed ,max_instant_windspeed_direction ,most_wind_directiion ,total_sun_time ,total_snowfall_depth ,deepest_snowfall) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                                         (date,
                                         data[1],
                                         data[2],
